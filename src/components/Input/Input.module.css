@@ -1,0 +1,41 @@
+.Input {
+    display: inline-block;
+    background-color: white;
+    width: 30%;
+}
+
+.Inputs {
+    width: 50%;
+    background-color: turquoise;
+    float: left;
+}
+
+.Date {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.Description {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.Amount {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.AddButton {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    line-height: 20px;
+    background-color: violet;
+    float: right;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.AddButton:hover {
+    cursor: pointer;
+}

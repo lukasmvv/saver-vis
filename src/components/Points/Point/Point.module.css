@@ -1,0 +1,28 @@
+.Point {
+    margin-bottom: 10px;
+}
+
+.Date {
+    font-size: 30px;
+    display: inline-block;
+}
+
+.Description {
+    font-size: 30px;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.Amount {
+    font-size: 30px;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.Delete {
+    font-size: 30px;
+    display: inline-block;
+    margin-left: 30px;
+    cursor: pointer;
+    color: red;
+}

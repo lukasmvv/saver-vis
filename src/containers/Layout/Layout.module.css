@@ -1,0 +1,20 @@
+.Layout {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(224, 195, 201);
+}
+
+.Heading {
+    background-color: cyan;
+    margin: 20px 20px;
+    display: inline-block;
+    width: 50%;
+}
+
+.Heading h1 {
+    font-size: 40px;
+}
+
+.Heading h2 {
+    font-size: 30px;
+}
