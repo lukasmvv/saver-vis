@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import classes from './Layout.module.css';
 import Points from '../../components/Points/Points';
 import Input from '../../components/Input/Input';
+import Charts from '../../components/Charts/Charts';
 import axios from 'axios';
 
 class Layout extends Component {
@@ -85,16 +86,37 @@ class Layout extends Component {
         });
     }
 
+    calculateTotal = () => {
+        if (this.state.data) {
+            return this.state.data.map(p=> p.amount).reduce((a, b) => a + b, 0);
+        } else {
+            return 0;
+        }        
+    }
+
     render() {
         
         return (
             <div className={classes.Layout}>
-                <div className={classes.Heading}>
-                    <h1>This is the heading of the saver vis</h1>
-                    {/* <h2>{this.state.date}</h2> */}
+                <div className={classes.Top}>
+                    <div className={classes.Heading}>
+                        <h1>Mortage Saver Visualization</h1>
+                        <h2>Saves to Firebase</h2>
+                        <h2>Total Saved: €{this.calculateTotal()}</h2>
+                    </div>
+                    <div className={classes.Inputs}>
+                        <Input clear={this.state.clear} clicked={this.addButtonHandler}/>
+                    </div>
                 </div>
-                <Input clear={this.state.clear} clicked={this.addButtonHandler}/>
-                {this.state.error ? <p>Error loading data</p> : this.state.loading ? <p>Loading...</p>: <Points deletePoint={this.deletePointHandler} dataPoints={this.state.data}/>}
+
+                <div className={classes.Bottom}>
+                    <div className={classes.Points}>
+                        {this.state.error ? <p>Error loading data</p> : this.state.loading ? <p>Loading...</p>: <Points deletePoint={this.deletePointHandler} dataPoints={this.state.data}/>}
+                    </div>
+                    <div className={classes.Charts}>
+                        <Charts data={this.state.data}></Charts>
+                    </div>
+                </div>                              
             </div>
         );
     }
