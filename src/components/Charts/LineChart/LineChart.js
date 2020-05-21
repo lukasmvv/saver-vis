@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import classes from './BarChart.module.css';
+import classes from './LineChart.module.css';
 import Chart from 'chart.js';
 // import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 // Chart.plugins.unregister(ChartDataLabels);
 
-class BarChart extends Component {
+class LineChart extends Component {
 
     constructor(props) {
         super();
@@ -23,7 +23,7 @@ class BarChart extends Component {
                     // maxBarThickness: 8,
                     // minBarLength: 2,
                     data: nextProps.data,
-                    backgroundColor: '#3e95cd'
+                    borderColor: '#3e95cd'
                 }]
             };
             this.myChart.update();
@@ -36,7 +36,7 @@ class BarChart extends Component {
     componentDidMount() {            
         this.myChart = new Chart(this.chartRef.current, {
         //   plugins: [ChartDataLabels],
-          type: 'bar',          
+          type: 'line',          
           data: {
             labels: this.props.labels,
             datasets: [{
@@ -49,7 +49,7 @@ class BarChart extends Component {
               },
               title: {
                   display: true,
-                  text: 'Individual Deposits Over Time',
+                  text: 'Total Savings Over Time',
                   fontSize: 20
               },
               scales: {
@@ -83,11 +83,11 @@ class BarChart extends Component {
 
     render() {   
         return (
-            <div className={classes.BarChart}>
+            <div className={classes.LineChart}>
                 <canvas ref={this.chartRef}/>
             </div>
         );
     }    
 };
 
-export default BarChart;
+export default LineChart;
