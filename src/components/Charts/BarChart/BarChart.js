@@ -53,7 +53,7 @@ class BarChart extends Component {
                   fontSize: 20
               },
               scales: {
-                  yAxes: [{
+                  yAxes: [{                    
                       display: true,
                       ticks: {
                             min: 0,

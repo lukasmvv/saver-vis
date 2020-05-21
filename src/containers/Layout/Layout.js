@@ -5,6 +5,9 @@ import Input from '../../components/Input/Input';
 import Charts from '../../components/Charts/Charts';
 import axios from 'axios';
 
+// TO DO
+// make everything look better
+
 class Layout extends Component {
     
     constructor(props) {
@@ -20,9 +23,7 @@ class Layout extends Component {
             // date: todayFormatted,
             clear: false
         }
-    }
-    
-    
+    }   
 
     componentWillMount() {
         this.loadPoints();
@@ -43,15 +44,16 @@ class Layout extends Component {
             const keys = Object.keys(rawData);
             for (const key of keys) {
                 data.push({
-                    date: rawData[key].date,
+                    date: new Date(rawData[key].date),
                     description: rawData[key].description,
                     amount: rawData[key].amount,
                     id: key
                 });
             }
+            const sortedData = data.sort((a,b) => a.date - b.date);
             this.setState({
                 error: false,
-                data: data,
+                data: sortedData,
                 loading: false
             });
         })

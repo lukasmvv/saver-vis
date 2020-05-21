@@ -66,6 +66,14 @@ class LineChart extends Component {
                       }
                   }],
                   xAxes: [{
+                    type: 'time',
+                    time: {
+                        unit: 'day',
+                        unitStepSize: 1,
+                        displayFormats: {
+                            'month': 'DD MMM'
+                        }
+                      },
                       display: true,
                       ticks : {
                             fontSize: 15
