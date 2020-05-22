@@ -2,4 +2,14 @@
     width: 100%;
     /* background-color: wheat; */
     display: inline-block;
+    overflow: auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .Charts {
+        width: 100%;
+        /* background-color: wheat; */
+        display: block;
+        overflow: auto;
+    }
 }

@@ -1,45 +1,119 @@
 .Point {
-    margin-bottom: 10px;
     box-sizing: border-box;
     border: 1px solid black;
     border-radius: 5px;
     margin-bottom: 5px;
     box-shadow: 1px 1px #888888;
     background-color: #ccc;
+    /* height: 500px; */
+    display: block;
+    overflow: auto;
+}
+
+.Text {
+    float: left;
+    width: 90%;
+    height: 100%;
+}
+
+.Button {
+    float: left;
+    width: 10%;
+    height: 100%;
 }
 
 .Date {
-    font-size: 30px;
-    display: inline-block;
+    font-size: 20px;
+    /* display: inline-block; */
     box-sizing: border-box;
-    width: 25%;
+    /* width: 25%; */
     /* background-color: thistle; */
 }
 
 .Description {
-    font-size: 30px;
-    display: inline-block;
-    margin-left: 30px;
+    font-size: 20px;
+    /* display: inline-block; */
+    /* margin-left: 30px; */
     box-sizing: border-box;
-    width: 40%;
+    /* width: 40%; */
     /* background-color: rgb(175, 76, 175); */
     overflow: hidden;
 }
 
 .Amount {
-    font-size: 30px;
-    display: inline-block;
-    margin-left: 30px;
+    font-size: 20px;
+    /* display: inline-block; */
+    /* margin-left: 30px; */
     box-sizing: border-box;
-    width: 17%;
+    /* width: 17%; */
     /* background-color: rgb(97, 51, 97); */
 }
 
 .Delete {
-    font-size: 30px;
-    display: inline-block;
-    margin-left: 30px;
+    font-size: 20px;
+    display: flex;
+    /* float: right; */
+    /* margin-left: 30px; */
     cursor: pointer;
     color: red;
     box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px) {
+    .Point {
+        box-sizing: border-box;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        box-shadow: 1px 1px #888888;
+        background-color: #ccc;
+        display: block;
+        overflow: auto;
+    }
+
+    .Text {
+        float: left;
+        width: 90%;
+    }
+
+    .Button {
+        float: left;
+        width: 10%;
+    }
+    
+    .Date {
+        font-size: 30px;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 25%;
+        /* background-color: thistle; */
+    }
+    
+    .Description {
+        font-size: 30px;
+        display: inline-block;
+        margin-left: 30px;
+        box-sizing: border-box;
+        width: 40%;
+        /* background-color: rgb(175, 76, 175); */
+        overflow: hidden;
+    }
+    
+    .Amount {
+        font-size: 30px;
+        display: inline-block;
+        margin-left: 30px;
+        box-sizing: border-box;
+        width: 17%;
+        /* background-color: rgb(97, 51, 97); */
+    }
+    
+    .Delete {
+        font-size: 30px;
+        display: inline-block;
+        margin-left: 30px;
+        cursor: pointer;
+        color: red;
+        box-sizing: border-box;
+    }
 }

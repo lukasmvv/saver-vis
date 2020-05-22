@@ -1,55 +1,116 @@
 .Layout {
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: rgb(224, 195, 201);
     overflow: auto;
 }
 
 .Top {
     width: 100%;
-    height: 150px;
+    display: block;
+    overflow: auto;
+    margin-top: 10px;
 }
 
 .Bottom {
     width: 100%;
-    height: 80%;
+    display: block;
+    overflow: auto;
+    margin-bottom: 10px;
 }
 
 .Heading {
     background-color: cyan;
-    margin: 20px 20px;
-    float: left;
-    width: 50%;
-    height: 100%;
+    margin: auto auto;
+    display: block;
+    width: 95%;
+    overflow: auto;
 }
 
 .Heading h1 {
-    font-size: 40px;
+    font-size: 22px;
 }
 
 .Heading h2 {
-    font-size: 30px;
+    font-size: 18px;
 }
 
 .Inputs {
-    margin: 20px 20px;
-    float: right;
-    width: 40%;
-    height: 150px;
+    margin: auto auto;
+    display: block;
+    width: 95%;
+    overflow: auto;
+    background-color: tomato;
 }
 
 .Points {
     background-color: rgb(96, 209, 162);
-    margin: 20px 20px;
-    float: left;
-    width: 47%;
+    margin: auto auto;
+    display: block;
+    overflow: auto;
+    width: 95%;
     /* height: 100%; */
 }
 
 .Charts {
     background-color: white;
-    margin: 20px 20px;
-    float: left;
-    width: 47%;
+    margin: auto auto;
+    display: block;
+    overflow: auto;
+    width: 95%;
     /* height: 100%; */
+}
+
+
+@media only screen and (min-width: 768px) {
+    .Top {
+        width: 100%;
+        height: 150px;
+        display: block;
+        overflow: hidden;
+    }
+    
+    .Bottom {
+        width: 100%;
+        height: 80%;
+    }
+    
+    .Heading {
+        background-color: cyan;
+        margin: 20px 20px;
+        float: left;
+        width: 50%;
+        height: 100%;
+    }
+    
+    .Heading h1 {
+        font-size: 40px;
+    }
+    
+    .Heading h2 {
+        font-size: 30px;
+    }
+    
+    .Inputs {
+        margin: 20px 20px;
+        float: right;
+        width: 40%;
+        height: 150px;
+    }
+    
+    .Points {
+        background-color: rgb(96, 209, 162);
+        margin: 20px 20px;
+        float: left;
+        width: 47%;
+        /* height: 100%; */
+    }
+    
+    .Charts {
+        background-color: white;
+        margin: 20px 20px;
+        float: left;
+        width: 47%;
+        /* height: 100%; */
+    }
 }

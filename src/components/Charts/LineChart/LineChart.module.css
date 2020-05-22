@@ -1,3 +1,9 @@
 .LineChart {
     width: 100%;
 }
+
+@media only screen and (min-width: 768px) {
+    .LineChart {
+        width: 100%;
+    }
+}
