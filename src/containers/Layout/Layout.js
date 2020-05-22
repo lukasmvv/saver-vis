@@ -7,6 +7,7 @@ import axios from 'axios';
 
 // TO DO
 // make everything look better
+// add empty chart state
 
 class Layout extends Component {
     

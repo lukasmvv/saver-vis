@@ -36,8 +36,13 @@ class Input extends Component {
     }
 
     changeAmountHandler = (e) => {
+        console.log(e.target.value);
+        let val = e.target.value;
+        if (val.substring(0,1)==='0') {
+            val = val.substring(1);
+        }
         this.setState({
-            amount: +e.target.value
+            amount: +val
         });
     }
 
@@ -53,7 +58,7 @@ class Input extends Component {
                 <div className={classes.Inputs}>
                     <input className={classes.SingleInput} type="date" name="date" value={this.state.date} onChange={this.changeDateHandler}></input>
                     <input className={classes.SingleInput} value={this.state.description} type='text' name='description' onChange={(e) => this.changeDesHandler(e)}></input>
-                    <input className={classes.SingleInput} value={this.state.amount} type='number' name='amount' min='0' max='100000' step='500' onChange={(e) => this.changeAmountHandler(e)}></input>
+                    <input className={classes.SingleInput} value={''+this.state.amount} type='number' name='amount' min='0' max='100000' step='500' onChange={(e) => this.changeAmountHandler(e)}></input>
                 </div>
                 <div className={classes.AddButton} onClick={() => this.props.clicked(this.state.description, this.state.amount, this.state.date)}>
                     <h1>+</h1>
