@@ -48,7 +48,7 @@ class BarChart extends Component {
                   display: false
               },
               title: {
-                  display: true,
+                  display: false,
                   text: 'Individual Deposits Over Time',
                   fontSize: 20
               },
@@ -60,7 +60,7 @@ class BarChart extends Component {
                             fontSize: 15
                       },
                       scaleLabel: {
-                            display: true,
+                            display: false,
                             labelString: 'Deposit Amount (€)',
                             fontSize: 20
                       }
@@ -71,7 +71,7 @@ class BarChart extends Component {
                             fontSize: 15
                       },
                       scaleLabel: {
-                            display: true,
+                            display: false,
                             labelString: 'Deposit Date',
                             fontSize: 20
                       }

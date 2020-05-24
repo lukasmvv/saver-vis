@@ -13,8 +13,8 @@ const Point = (props) => {
                 <p className={classes.Description}>{props.dataObject.description}</p>
                 <p className={classes.Amount}>€{props.dataObject.amount}</p>
             </div>
-            <div classes={classes.Button}>
-                <p className={classes.Delete} onClick={() => props.deletePoint(props.dataObject.id)}>X</p>
+            <div className={classes.Button}>
+                <p onClick={() => props.deletePoint(props.dataObject.id)}>X</p>
             </div>
         </div>
     );

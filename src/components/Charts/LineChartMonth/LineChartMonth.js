@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import classes from './LineChart.module.css';
+import classes from './LineChartMonth.module.css';
 import Chart from 'chart.js';
 // import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 // Chart.plugins.unregister(ChartDataLabels);
 
-class LineChart extends Component {
+class LineChartMonth extends Component {
 
     constructor(props) {
         super();
@@ -66,12 +66,14 @@ class LineChart extends Component {
                       }
                   }],
                   xAxes: [{
+                    offset: true,
+                    distribution: 'series',
                     type: 'time',
                     time: {
-                        unit: 'day',
+                        unit: 'month',
                         unitStepSize: 1,
                         displayFormats: {
-                            'month': 'DD MMM'
+                            'month': 'MMM YYYY'
                         }
                       },
                       display: true,
@@ -91,11 +93,11 @@ class LineChart extends Component {
 
     render() {   
         return (
-            <div className={classes.LineChart}>
+            <div className={classes.LineChartMonth}>
                 <canvas ref={this.chartRef}/>
             </div>
         );
     }    
 };
 
-export default LineChart;
+export default LineChartMonth;

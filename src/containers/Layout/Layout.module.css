@@ -1,7 +1,8 @@
 .Layout {
     width: 100vw;
+    height: 100vh;
     /* height: 100vh; */
-    background-color: rgb(224, 195, 201);
+    background-color: rgb(248, 239, 241);
     overflow: auto;
 }
 
@@ -9,7 +10,8 @@
     width: 100%;
     display: block;
     overflow: auto;
-    margin-top: 10px;
+    margin: 0 auto;
+    height: 30%;
 }
 
 .Bottom {
@@ -20,11 +22,13 @@
 }
 
 .Heading {
-    background-color: cyan;
-    margin: auto auto;
+    /* background-color: cyan; */
+    margin: 0 auto;
     display: block;
-    width: 95%;
-    overflow: auto;
+    width: 100%;
+    height: 40%;
+    /* overflow: auto; */
+    text-indent: 10px;
 }
 
 .Heading h1 {
@@ -38,22 +42,26 @@
 .Inputs {
     margin: auto auto;
     display: block;
-    width: 95%;
+    width: 100%;
     overflow: auto;
-    background-color: tomato;
+    /* background-color: tomato; */
+    margin-top: 15px;
+    height: 55%;
 }
 
 .Points {
-    background-color: rgb(96, 209, 162);
+    /* background-color: rgb(96, 209, 162); */
     margin: auto auto;
-    display: block;
+    /* display: block; */
     overflow: auto;
-    width: 95%;
+    width: 100%;
     /* height: 100%; */
+    margin-top: 15px;
+    /* margin-bottom: 15px; */
 }
 
 .Charts {
-    background-color: white;
+    background-color: rgb(223, 214, 214);
     margin: auto auto;
     display: block;
     overflow: auto;

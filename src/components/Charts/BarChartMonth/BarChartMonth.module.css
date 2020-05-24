@@ -1,0 +1,9 @@
+.BarChartMonth {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .BarChartMonth {
+        width: 100%;
+    }
+}

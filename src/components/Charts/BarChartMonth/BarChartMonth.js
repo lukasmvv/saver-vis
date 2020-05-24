@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import classes from './LineChart.module.css';
+import classes from './BarChartMonth.module.css';
 import Chart from 'chart.js';
 // import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 // Chart.plugins.unregister(ChartDataLabels);
 
-class LineChart extends Component {
+class BarChartMonth extends Component {
 
     constructor(props) {
         super();
@@ -13,17 +13,17 @@ class LineChart extends Component {
     }    
 
     shouldComponentUpdate(nextProps, nextState) {
-        
+        console.log(nextProps.labels);
         if (JSON.stringify(nextProps.data)!==JSON.stringify(this.props.data)) {
             this.myChart.data = {
                 labels: nextProps.labels,
                 datasets: [{
                     // barPercentage: 0.5,
-                    // barThickness: 6,
+                    // barThickness: 20,
                     // maxBarThickness: 8,
                     // minBarLength: 2,
                     data: nextProps.data,
-                    borderColor: '#3e95cd'
+                    backgroundColor: '#3e95cd'
                 }]
             };
             this.myChart.update();
@@ -33,10 +33,11 @@ class LineChart extends Component {
     }
 
     // creating chart after component mounts
-    componentDidMount() {            
+    componentDidMount() {           
+        
         this.myChart = new Chart(this.chartRef.current, {
         //   plugins: [ChartDataLabels],
-          type: 'line',          
+          type: 'bar',          
           data: {
             labels: this.props.labels,
             datasets: [{
@@ -49,11 +50,11 @@ class LineChart extends Component {
               },
               title: {
                   display: false,
-                  text: 'Total Savings Over Time',
+                  text: 'Individual Deposits Over Time',
                   fontSize: 20
               },
               scales: {
-                  yAxes: [{
+                  yAxes: [{                    
                       display: true,
                       ticks: {
                             min: 0,
@@ -66,15 +67,17 @@ class LineChart extends Component {
                       }
                   }],
                   xAxes: [{
+                    offset: true,
+                    distribution: 'series',
+                    display: true,
                     type: 'time',
                     time: {
-                        unit: 'day',
+                        unit: 'month',
                         unitStepSize: 1,
                         displayFormats: {
-                            'month': 'DD MMM'
+                            'month': 'MMM YYYY'
                         }
                       },
-                      display: true,
                       ticks : {
                             fontSize: 15
                       },
@@ -91,11 +94,11 @@ class LineChart extends Component {
 
     render() {   
         return (
-            <div className={classes.LineChart}>
+            <div className={classes.BarChartMonth}>
                 <canvas ref={this.chartRef}/>
             </div>
         );
     }    
 };
 
-export default LineChart;
+export default BarChartMonth;
