@@ -13,7 +13,6 @@ class BarChartMonth extends Component {
     }    
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log(nextProps.labels);
         if (JSON.stringify(nextProps.data)!==JSON.stringify(this.props.data)) {
             this.myChart.data = {
                 labels: nextProps.labels,

@@ -27,8 +27,8 @@ const Charts = (props) => {
         formattedLabels = props.data.map(p => formatDate(p.date));
         labels = props.data.map(p => p.date);
 
-        const firstDate = labels[0];
-        const lastDate = labels[labels.length-1];
+        // const firstDate = labels[0];
+        // const lastDate = labels[labels.length-1];
 
         const newDates = [];
 
@@ -43,6 +43,8 @@ const Charts = (props) => {
                 return item;
             } else if (item.getMonth()!==arr[pos-1].getMonth()) {
                 return item;
+            } else {
+                return false;
             }
         });
 
@@ -56,8 +58,7 @@ const Charts = (props) => {
             });
             monthData.push(monthTotal);
         });
-        console.log(monthLabels);
-        console.log(monthData);
+
         for (var i=0;i<monthData.length;i++) {
             lineMonthData.push(monthData.slice(0,i+1).reduce((a, b) => a + b, 0));
         }

@@ -14,8 +14,8 @@ class Layout extends Component {
     constructor(props) {
         super();
 
-        const today = new Date();
-        const todayFormatted = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
+        // const today = new Date();
+        // const todayFormatted = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
 
         this.state = {
             data: null,
@@ -25,6 +25,13 @@ class Layout extends Component {
             clear: false
         }
     }   
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (JSON.stringify(nextState)!==JSON.stringify(this.state)) {
+            return true;
+        }
+        return false;    
+    }
 
     componentWillMount() {
         this.loadPoints();
@@ -96,8 +103,35 @@ class Layout extends Component {
             return 0;
         }        
     }
+    
+    calculateAverage = () => {
+        if (this.state.data!==null) {
+            const startIndex = 7;
 
-    render() {
+            const startD = new Date(this.state.data[startIndex].date);
+            const endD = new Date(this.state.data[this.state.data.length-1].date);
+            const duration = endD - startD;
+            const durationDays = duration/(1000*60*60*24);
+
+            const totalInPeriod = this.state.data.slice(startIndex).map(p=> p.amount).reduce((a, b) => a + b, 0);
+            const averagePerDay = totalInPeriod/durationDays;
+            return averagePerDay;
+        } else {
+            return 0;
+        }
+    }
+
+    predictAmount = (months) => {
+        const average = this.calculateAverage();
+        if (average!==null) {
+            const toAdd = average*(30*months);
+            return toAdd;
+        } else {
+            return 0;
+        }
+    }
+
+    render() {       
         
         return (
             <div className={classes.Layout}>
@@ -106,6 +140,7 @@ class Layout extends Component {
                         <h1>Mortage Saver Visualization</h1>
                         <h2>Saves to Firebase</h2>
                         <h2>Total Saved: €{this.calculateTotal()}</h2>
+                        <h2>Predictied Total in 6 Months: €{(this.calculateTotal()+this.predictAmount(6)).toFixed(2)}</h2>
                     </div>
                     <div className={classes.Inputs}>
                         <Input clear={this.state.clear} clicked={this.addButtonHandler}/>
