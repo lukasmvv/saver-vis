@@ -27,9 +27,6 @@ const Charts = (props) => {
         formattedLabels = props.data.map(p => formatDate(p.date));
         labels = props.data.map(p => p.date);
 
-        // const firstDate = labels[0];
-        // const lastDate = labels[labels.length-1];
-
         const newDates = [];
 
         // saving months in new array
@@ -62,8 +59,6 @@ const Charts = (props) => {
         for (var i=0;i<monthData.length;i++) {
             lineMonthData.push(monthData.slice(0,i+1).reduce((a, b) => a + b, 0));
         }
-
-        //const monthlyLabels = newArr.map(ar => new Date());
     }    
     
     return (

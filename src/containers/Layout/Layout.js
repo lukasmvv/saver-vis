@@ -14,14 +14,10 @@ class Layout extends Component {
     constructor(props) {
         super();
 
-        // const today = new Date();
-        // const todayFormatted = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
-
         this.state = {
             data: null,
             error: false,
             loading: true,
-            // date: todayFormatted,
             clear: false
         }
     }   
@@ -46,7 +42,6 @@ class Layout extends Component {
     loadPoints = () => {
         axios.get('https://saver-vis.firebaseio.com/data.json')
         .then(res => {
-            //console.log(res);
             const rawData = res.data;
             const data = [];
             const keys = Object.keys(rawData);
@@ -132,7 +127,18 @@ class Layout extends Component {
     }
 
     render() {       
-        
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+            ];
+        const date = new Date();
+        const month = date.getMonth();
+        const year = date.getFullYear();
+
+        let predictions = [];
+        for (var i=0;i<6;i++) {
+            predictions.push(<h2>{`End of ${monthNames[month+i]}: €${(this.calculateTotal()+this.predictAmount(i)).toFixed(2)}`}</h2>);
+        }
+
         return (
             <div className={classes.Layout}>
                 <div className={classes.Top}>
@@ -140,7 +146,9 @@ class Layout extends Component {
                         <h1>Mortage Saver Visualization</h1>
                         <h2>Saves to Firebase</h2>
                         <h2>Total Saved: €{this.calculateTotal()}</h2>
-                        <h2>Predictied Total in 6 Months: €{(this.calculateTotal()+this.predictAmount(6)).toFixed(2)}</h2>
+                        <h1>Predictions</h1>
+                        {predictions}
+                        {/* <h2>Predictied Total in 6 Months: €{(this.calculateTotal()+this.predictAmount(6)).toFixed(2)}</h2> */}
                     </div>
                     <div className={classes.Inputs}>
                         <Input clear={this.state.clear} clicked={this.addButtonHandler}/>
