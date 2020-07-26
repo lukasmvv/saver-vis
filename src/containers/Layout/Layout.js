@@ -136,13 +136,13 @@ class Layout extends Component {
 
         let predictions = [];
         for (var i=0;i<6;i++) {
-            predictions.push(<h2>{`End of ${monthNames[month+i]}: €${(this.calculateTotal()+this.predictAmount(i)).toFixed(2)}`}</h2>);
+            predictions.push(<h2 key={i}>{`End of ${monthNames[month+i]}: €${(this.calculateTotal()+this.predictAmount(i)).toFixed(2)}`}</h2>);
         }
 
         return (
             <div className={classes.Layout}>
                 <div className={classes.Top}>
-                    <div className={classes.Heading}>
+                    <div className={classes.Heading} id="predictions">
                         <h1>Mortage Saver Visualization</h1>
                         <h2>Saves to Firebase</h2>
                         <h2>Total Saved: €{this.calculateTotal()}</h2>

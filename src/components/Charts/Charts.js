@@ -62,11 +62,11 @@ const Charts = (props) => {
     }    
     
     return (
-        <div className={classes.Charts}>
-            <BarChart data={barData} labels={formattedLabels}></BarChart>
-            <LineChart data={lineData} labels={labels}></LineChart>
-            <BarChartMonth data={monthData} labels={monthLabels}></BarChartMonth>
-            <LineChartMonth data={lineMonthData} labels={monthLabels}></LineChartMonth>
+        <div className={classes.Charts} id="mortageCharts">
+            <BarChart data={barData} labels={formattedLabels} id="depositsBar"></BarChart>
+            <LineChart data={lineData} labels={labels} id="depositsLine"></LineChart>
+            <BarChartMonth data={monthData} labels={monthLabels} id="monthlyBar"></BarChartMonth>
+            <LineChartMonth data={lineMonthData} labels={monthLabels} id="monthlyLine"></LineChartMonth>
         </div>
     );    
 };

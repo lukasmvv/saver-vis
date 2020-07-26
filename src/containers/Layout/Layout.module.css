@@ -48,7 +48,7 @@
     overflow: hidden;
     /* background-color: tomato; */
     margin-top: 15px;
-    height: 55%;
+    height: 250px;
 }
 
 .Points {
@@ -109,7 +109,7 @@
         margin: 20px 20px;
         float: right;
         width: 40%;
-        height: 150px;
+        height: 400px;
     }
     
     .Points {
