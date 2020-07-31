@@ -57,7 +57,10 @@ class LineChart extends Component {
                       display: true,
                       ticks: {
                             min: 0,
-                            fontSize: 15
+                            fontSize: 15,
+                            callback: function(value, index, values) {
+                                return `€${value}`
+                            }
                       },
                       scaleLabel: {
                             display: false,
@@ -92,7 +95,7 @@ class LineChart extends Component {
     render() {   
         return (
             <div className={classes.LineChart}>
-                <canvas ref={this.chartRef}/>
+                <canvas ref={this.chartRef} id={this.props.id}/>
             </div>
         );
     }    

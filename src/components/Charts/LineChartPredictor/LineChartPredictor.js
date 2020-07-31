@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import classes from './BarChartMonth.module.css';
+import classes from './LineChartPredictor.module.css';
 import Chart from 'chart.js';
 // import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 // Chart.plugins.unregister(ChartDataLabels);
 
-class BarChartMonth extends Component {
+class LineChartPredictor extends Component {
 
     constructor(props) {
         super();
@@ -13,16 +13,20 @@ class BarChartMonth extends Component {
     }    
 
     shouldComponentUpdate(nextProps, nextState) {
-        if (JSON.stringify(nextProps.data)!==JSON.stringify(this.props.data)) {
+        
+        if (JSON.stringify(nextProps.oData)!==JSON.stringify(this.props.oData) || JSON.stringify(nextProps.pData)!==JSON.stringify(this.props.pData)) {
             this.myChart.data = {
                 labels: nextProps.labels,
                 datasets: [{
-                    // barPercentage: 0.5,
-                    // barThickness: 20,
-                    // maxBarThickness: 8,
-                    // minBarLength: 2,
-                    data: nextProps.data,
-                    backgroundColor: '#3e95cd'
+                    data: nextProps.oData,
+                    borderColor: '#3e95cd',
+                    pointRadius: 2
+                },
+                {
+                    data: nextProps.pData,
+                    borderColor: '#3e95cd',
+                    borderDash: [10,5],
+                    pointRadius: 5
                 }]
             };
             this.myChart.update();
@@ -32,15 +36,17 @@ class BarChartMonth extends Component {
     }
 
     // creating chart after component mounts
-    componentDidMount() {           
-        
+    componentDidMount() {            
         this.myChart = new Chart(this.chartRef.current, {
         //   plugins: [ChartDataLabels],
-          type: 'bar',          
+          type: 'line',          
           data: {
             labels: this.props.labels,
             datasets: [{
-                data: this.props.data                
+                data: this.props.oData                
+            },
+            {
+                data: this.props.pData            
             }]
         },
           options: {
@@ -49,11 +55,11 @@ class BarChartMonth extends Component {
               },
               title: {
                   display: false,
-                  text: 'Individual Deposits Over Time',
+                  text: 'Total Savings Over Time',
                   fontSize: 20
               },
               scales: {
-                  yAxes: [{                    
+                  yAxes: [{
                       display: true,
                       ticks: {
                             min: 0,
@@ -71,7 +77,6 @@ class BarChartMonth extends Component {
                   xAxes: [{
                     offset: true,
                     distribution: 'series',
-                    display: true,
                     type: 'time',
                     time: {
                         unit: 'month',
@@ -80,6 +85,7 @@ class BarChartMonth extends Component {
                             'month': 'MMM YYYY'
                         }
                       },
+                      display: true,
                       ticks : {
                             fontSize: 15
                       },
@@ -96,11 +102,11 @@ class BarChartMonth extends Component {
 
     render() {   
         return (
-            <div className={classes.BarChartMonth}>
+            <div className={classes.LineChartMonth}>
                 <canvas ref={this.chartRef} id={this.props.id}/>
             </div>
         );
     }    
 };
 
-export default BarChartMonth;
+export default LineChartPredictor;

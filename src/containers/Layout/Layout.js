@@ -4,6 +4,7 @@ import Points from '../../components/Points/Points';
 import Input from '../../components/Input/Input';
 import Charts from '../../components/Charts/Charts';
 import axios from 'axios';
+import * as ids from '../../utils/ids';
 
 // TO DO
 // make everything look better
@@ -18,7 +19,8 @@ class Layout extends Component {
             data: null,
             error: false,
             loading: true,
-            clear: false
+            clear: false,
+            averagePerDay: 0
         }
     }   
 
@@ -110,6 +112,7 @@ class Layout extends Component {
 
             const totalInPeriod = this.state.data.slice(startIndex).map(p=> p.amount).reduce((a, b) => a + b, 0);
             const averagePerDay = totalInPeriod/durationDays;
+            this.setState({averagePerDay: averagePerDay});
             return averagePerDay;
         } else {
             return 0;
@@ -142,7 +145,7 @@ class Layout extends Component {
         return (
             <div className={classes.Layout}>
                 <div className={classes.Top}>
-                    <div className={classes.Heading} id="predictions">
+                    <div className={classes.Heading} id={ids.PREDICTIONS}>
                         <h1>Mortage Saver Visualization</h1>
                         <h2>Saves to Firebase</h2>
                         <h2>Total Saved: €{this.calculateTotal()}</h2>
@@ -160,7 +163,7 @@ class Layout extends Component {
                         {this.state.error ? <p>Error loading data</p> : this.state.loading ? <p>Loading...</p>: <Points deletePoint={this.deletePointHandler} dataPoints={this.state.data}/>}
                     </div>
                     <div className={classes.Charts}>
-                        <Charts data={this.state.data}></Charts>
+                        <Charts data={this.state.data} averagePerDay={this.state.averagePerDay}></Charts>
                     </div>
                 </div>                              
             </div>
