@@ -23,6 +23,11 @@
     /* margin-bottom: 10px; */
 }
 
+.Calc {
+    background-color: aqua;
+    display: block;
+}
+
 .Heading {
     background-color: rgb(191, 183, 182);
     margin: 0 auto;

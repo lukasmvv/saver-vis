@@ -3,6 +3,7 @@ import classes from './Layout.module.css';
 import Points from '../../components/Points/Points';
 import Input from '../../components/Input/Input';
 import Charts from '../../components/Charts/Charts';
+import Calc from '../../components/Calc/Calc';
 import axios from 'axios';
 import * as ids from '../../utils/ids';
 
@@ -155,9 +156,9 @@ class Layout extends Component {
                     </div>
                     <div className={classes.Inputs}>
                         <Input clear={this.state.clear} clicked={this.addButtonHandler}/>
-                    </div>
+                    </div>                    
                 </div>
-
+                <Calc total={this.calculateTotal()}/>
                 <div className={classes.Bottom}>
                     <div className={classes.Points}>
                         {this.state.error ? <p>Error loading data</p> : this.state.loading ? <p>Loading...</p>: <Points deletePoint={this.deletePointHandler} dataPoints={this.state.data}/>}
