@@ -4,25 +4,24 @@
 
 .Calc {
 	width: 100%;
-	height: 70%;
+	height: 100%;
 	margin-bottom: 20px;
 	display: block;
 	/* background-color: blue; */
+	margin-top: 20px;
 }
 
 .Left {
-	width: 50%;
-	height: 100%;
-	float: left;
+	width: 100%;
+	height: 50%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 .Right {
-	width: 50%;
-	height: 100%;
-	float: right;
+	width: 100%;
+	height: 50%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -33,7 +32,7 @@
 .YearStyle {
 	margin-bottom: 10px;
     background-color: rgb(211, 211, 211);
-    font-size: 25px;
+    font-size: 15px;
     width: 90%;
     text-align: center;
 	margin: auto;
@@ -41,15 +40,11 @@
 	border: 2px solid black;
 }
 
-.YearsText {
-
-}
-
 .YearsSlider {
 	-webkit-appearance: none;
     appearance: none;
     width: 90%;
-    height: 15px;
+    height: 10px;
     background: rgb(29, 29, 29);
     outline: none; 
     opacity: 0.7;
@@ -63,7 +58,7 @@
     -webkit-appearance: none;
     appearance: none;
     width: 10px;
-    height: 25px;
+    height: 20px;
     background: #FF0000;
     cursor: pointer;
 }
@@ -86,7 +81,7 @@
     height: 10px;
     line-height: 40px;
     margin: 0 0 20px 0;
-    font-size: 25px;
+    font-size: 15px;
 }
 
 
@@ -94,7 +89,7 @@
 .interestRateStyle{
     margin-bottom: 10px;
     background-color: rgb(211, 211, 211);
-    font-size: 25px;
+    font-size: 15px;
     width: 90%;
 	margin: auto;
 	border: 2px solid black;
@@ -113,7 +108,7 @@
 .interestRateBlock input {
 	float: left;
 	background-color: white;
-	font-size: 25px;
+	font-size: 15px;
 	margin-left: 5px;
 	width: 80px;
 }
@@ -123,7 +118,7 @@
 .costs {
     margin-bottom: 10px;
     background-color: rgb(211, 211, 211);
-    font-size: 25px;
+    font-size: 15px;
     width: 90%;
 	margin: auto;
 	border: 2px solid black;
@@ -141,11 +136,196 @@
 
 .costs input {
     display: inline-block;
-    font-size: 25px;
+    font-size: 15px;
 	width: 50%;
 	background-color: white;
 	margin-left: 10px;
 }
+
+
+/*DEPOSIT*/
+.deposit {
+    margin-bottom: 10px;
+    background-color: rgb(211, 211, 211);
+    font-size: 15px;
+    width: 90%;
+	margin: auto;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+.depositOne {
+    width: 100%;
+    display: block;
+}
+.depositText  {
+    display: inline-block;
+    margin-left: 10px;
+}
+.depositPercentage {
+    display: inline-block;
+	width: 70px;
+	background-color: white;
+	font-size: 15px;
+	margin-left: 10px;
+}
+.depositAmount  {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+
+/*CALCULATION*/
+.calculation {
+    margin-bottom: 10px;
+    background-color: rgb(211, 211, 211);
+    font-size: 25px;
+    height: 90%;
+    width: 90%;
+    text-align: center;
+	margin: auto;
+	border-radius: 10px;
+	border: 2px solid black;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+#monthlyRepayments {
+    font-weight: bold;
+}
+
+@media(min-width:600px) {
+	.Calc {
+		width: 100%;
+		height: 70%;
+		margin-bottom: 20px;
+		display: block;
+		/* background-color: blue; */
+	}
+	
+	.Left {
+		width: 50%;
+		height: 100%;
+		float: left;
+	}
+	.Right {
+		width: 50%;
+		height: 100%;
+		float: right;
+	}
+	.YearStyle {
+		margin-bottom: 10px;
+		background-color: rgb(211, 211, 211);
+		font-size: 15px;
+		width: 90%;
+		text-align: center;
+		margin: auto;
+		border-radius: 10px;
+		border: 2px solid black;
+	}
+	
+	.YearsSlider {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 90%;
+		height: 15px;
+		background: rgb(29, 29, 29);
+		outline: none; 
+		opacity: 0.7;
+		-webkit-transition: .2s;
+		transition: opacity .2s; 
+	}
+	.YearsSlider:hover {
+		opacity: 1;
+	}
+	.YearsSlider::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 10px;
+		height: 25px;
+		background: #FF0000;
+		cursor: pointer;
+	}
+	
+	.StepList {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 10px;
+		width: 90%;
+		/* background-color: violet; */
+		margin: auto;
+	}
+	.StepList p {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		width: 1px;
+		background: #D3D3D3;
+		height: 10px;
+		line-height: 40px;
+		margin: 0 0 20px 0;
+		font-size: 25px;
+	}
+	/*INTEREST RATE*/
+	.interestRateStyle{
+		margin-bottom: 10px;
+		background-color: rgb(211, 211, 211);
+		font-size: 15px;
+		width: 90%;
+		margin: auto;
+		border: 2px solid black;
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	.interestRateBlock {
+		display: block;
+	}
+	.interestRateBlock p {
+		float: left;
+	}
+	.interestRateBlock input {
+		float: left;
+		background-color: white;
+		font-size: 15px;
+		margin-left: 5px;
+		width: 80px;
+	}
+
+
+	/*COSTS*/
+	.costs {
+		margin-bottom: 10px;
+		background-color: rgb(211, 211, 211);
+		font-size: 25px;
+		width: 90%;
+		margin: auto;
+		border: 2px solid black;
+		border-radius: 10px;
+	}
+
+	.c1, .c2, .c3, .c4, .c5 {
+		width: 100%;
+	}
+
+	.costs p {
+		display: inline-block;
+		margin-left: 10px;
+	}
+
+	.costs input {
+		display: inline-block;
+		font-size: 25px;
+		width: 50%;
+		background-color: white;
+		margin-left: 10px;
+	}
 
 
 /*DEPOSIT*/
@@ -197,7 +377,4 @@
 	justify-content: space-evenly;
 	align-items: center;
 }
-
-#monthlyRepayments {
-    font-weight: bold;
 }

@@ -113,7 +113,7 @@ class Layout extends Component {
 
             const totalInPeriod = this.state.data.slice(startIndex).map(p=> p.amount).reduce((a, b) => a + b, 0);
             const averagePerDay = totalInPeriod/durationDays;
-            this.setState({averagePerDay: averagePerDay});
+            // this.setState({averagePerDay: averagePerDay});
             return averagePerDay;
         } else {
             return 0;
@@ -136,7 +136,7 @@ class Layout extends Component {
             ];
         const date = new Date();
         const month = date.getMonth();
-        const year = date.getFullYear();
+        //const year = date.getFullYear();
 
         let predictions = [];
         for (var i=0;i<6;i++) {

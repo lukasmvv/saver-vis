@@ -49,6 +49,11 @@ const Calc = (props) => {
 		setStampDuty(sd);
 		calculateMortgage();
 	}
+	const changeStampDuty = (e) => {
+		e.preventDefault();
+		setStampDuty(e.target.value.replace('€ ',''));
+		calculateMortgage();
+	}
 	const changeLegalFees = (e) => {
 		e.preventDefault();
 		setLegalFees(e.target.value.replace('€ ',''));
@@ -101,7 +106,7 @@ const Calc = (props) => {
 					</div>
 					<div className={classes.c2}>
 						<p className={classes.stampDutyText}>Stamp Duty:</p>
-						<input className={classes.stampDuty} type="text" id="stampDuty" value={`€ ${stampDuty}`}/>
+						<input className={classes.stampDuty} type="text" id="stampDuty" value={`€ ${stampDuty}`} onChange={changeStampDuty}/>
 					</div>
 					<div className={classes.c3}>
 						<p className={classes.legalFeesText}>Legal Fees:</p>
@@ -118,7 +123,7 @@ const Calc = (props) => {
 				</div>
 
 				<div className={classes.deposit}>
-					<div claclassNamess={classes.depositOne}>
+					<div className={classes.depositOne}>
 						<p className={classes.depositText} >Deposit Percentage: </p>
 						<input className={classes.depositPercentage} id="depositPercentage" type="text" value={`${depositPercentage} %`} onChange={changeDeposit}/>
 					</div>            

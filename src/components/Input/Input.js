@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import classes from './Input.module.css';
-import * as jsPDF from 'jspdf';
+// import * as jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
 import * as ids from '../../utils/ids';
-import { Page, Text, View, Document, StyleSheet, Canvas, PDFDownloadLink, Image} from '@react-pdf/renderer';
-import ReactPDF from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, PDFDownloadLink, Image} from '@react-pdf/renderer'; //Canvas
+// import ReactPDF from '@react-pdf/renderer';
 
 class Input extends Component {
     constructor(props) {
